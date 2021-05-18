@@ -6,7 +6,19 @@ router.get('/', (req,res) =>{
    res.render('home', {
        title: 'Books Search',
        content: 'Search books bae on different criteria',
-       style: 'home.css'
+       style: 'home.css',
+       books:[{
+           titleWeb: 'The Secretes of Handlebars',
+           authorWeb: 'JB',
+           workId: 123,
+           isbn: 123456789
+       },
+           {
+               titleWeb: 'The Secretes of Handlebars',
+               authorWeb: 'JB',
+               workId: 123,
+               isbn: 123456789
+           }]
    });
 });
 
@@ -16,9 +28,11 @@ router.get('/favourites', (req,res) =>{
         content: 'See your favourite books',
         style: 'favouriteBooks.css',
         favBooks:[{
-            bookId: 123,
-            author: 'JB',
-            name: 'The Secretes of Handlebars'
+            titleWeb: 'The Secretes of Handlebars',
+            authorWeb: 'JB',
+            workId: 123,
+            onSaleDate: '2015',
+            isbn: 123456789
         }]
     });
 });

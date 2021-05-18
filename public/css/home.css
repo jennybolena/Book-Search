@@ -1,0 +1,90 @@
+#home-link{
+    background-color: var(--orange-ish);
+}
+
+.search-books-container{
+    padding: 10px;
+    text-align: center;
+}
+
+
+.search-input{
+    width: 50%;
+    padding: 10px 20px;
+    display: inline-block;
+    font-size: 20px;
+    border: 2px solid var(--blue-ish);
+    border-radius: 5px;
+    background-color: var(--pink-ish);
+}
+
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: all 5000s ease-in-out 0s;
+    transition-property: background-color, color;
+}
+
+
+.search-button{
+    background-color: var(--blue-ish);
+    cursor: pointer;
+    border-radius: 50%;
+}
+.fa-search{
+    display: inline-block;
+    font-size: 25px;
+    color: white;
+    padding: 10px 20px;
+}
+
+
+h1{
+    padding: 15px 20px 0 20px;
+}
+
+
+/*books styling*/
+.books-of-search .searched-book{
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+.searched-book>p{
+    padding-bottom: 10px;
+}
+
+.searched-book{
+    border-bottom: 2px solid var(--black-ish);
+    border-top: 2px solid var(--black-ish);
+}
+.searched-book:hover{
+    background-color: var(--pink-ish);
+}
+
+.fa-star{
+  font-size: 25px;
+}
+
+.save-book-btn{
+    background-color: white;
+    cursor: pointer;
+    border: none;
+}
+
+.book-title-author{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.book-title-author>span{
+    font-weight: normal;
+    font-style: italic;
+}
+
+.extra-book-info>span{
+    padding: 0 10px;
+}
