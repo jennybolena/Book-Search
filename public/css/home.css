@@ -65,6 +65,9 @@ h1{
     background-color: var(--pink-ish);
 }
 
+.searched-book:hover .save-book-btn{
+    background-color: var(--pink-ish);
+}
 .fa-star{
   font-size: 25px;
 }
