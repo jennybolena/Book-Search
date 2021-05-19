@@ -7,6 +7,7 @@ router.get('/', (req,res) =>{
        title: 'Books Search',
        content: 'Search books bae on different criteria',
        style: 'home.css',
+       jsFunc : 'js/worksFetch.js',
        books:[{
            titleWeb: 'The Secrets of Handlebars',
            authorWeb: 'JB',
@@ -18,7 +19,8 @@ router.get('/', (req,res) =>{
                authorWeb: 'JB',
                workId: 123,
                isbn: 123456789
-           }]
+           }
+           ]
    });
 });
 

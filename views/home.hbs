@@ -1,3 +1,4 @@
+<script src="{{jsFunc}}"></script>
 {{> header}}
 
 {{!- form to submit search request--}}
@@ -5,7 +6,7 @@
 <h1>Find a book!</h1>
 <div class="search-books-container" id="search-books-container">
     <input type="text" placeholder="Search..." name="search" class="search-input" id="search">
-    <button type="button" onclick="" class="search-button"><i class="fas fa-search"></i></button>
+    <button type="button" onclick="fetchWorks(document.getElementById('search').value)" class="search-button"><i class="fas fa-search"></i></button>
 </div>
 
 <section class="books-of-search">
