@@ -7,13 +7,9 @@ function fetchWorks(searchInput){
             }
         });
 
-        if(rawResponse.status == 200){
             const content = await rawResponse.json();
-
-            console.log(content.work);
-        }
-
+            console.log(content);
+            return content.work;
     })();
 
 }
-
