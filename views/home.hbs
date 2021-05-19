@@ -6,17 +6,9 @@
 <h1>Find books!</h1>
 <div class="search-books-container" id="search-books-container">
     <input type="text" placeholder="Search..." name="search" class="search-input" id="search">
-    <button type="button" onclick="fetchWorks(document.getElementById('search').value)" class="search-button"><i class="fas fa-search"></i></button>
+    <button type="button" onkeyup="fetchWorks(document.getElementById('search').value)" onclick="fetchWorks(document.getElementById('search').value)" class="search-button"><i class="fas fa-search"></i></button>
 </div>
-
-<section class="books-of-search">
-{{#each books}}
-    <article class="searched-book">
-        <p class="book-title-author">{{this.titleWeb}} <span>by</span> {{this.authorWeb}}</p>
-        <p class="extra-book-info"><strong>WorkId: </strong>{{this.workId}} <span></span> <strong>ISBN: </strong> {{this.isbn}}</p>
-        <button class="save-book-btn"><i class="fas fa-star"></i></button>
-    </article>
-{{/each}}
+<section class="books-of-search" id="books-of-search">
 </section>
 
 {{> footer}}

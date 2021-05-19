@@ -86,6 +86,8 @@ h1{
 .book-title-author>span{
     font-weight: normal;
     font-style: italic;
+    display: block;
+    color: var(--orange-ish);
 }
 
 .extra-book-info>span{
