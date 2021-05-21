@@ -3,6 +3,7 @@ var router = express.Router();
 
 
 router.get('/', (req,res) =>{
+
    res.render('home', {
        title: 'Books Search',
        content: 'Search books bae on different criteria',
@@ -36,7 +37,8 @@ router.get('/favourites', (req,res) =>{
             onSaleDate: '2015',
             isbn: 123456789
         }]
-    });
+    },
+    );
 });
 
 router.get('/favourites/edit', (req,res) =>{
@@ -45,6 +47,13 @@ router.get('/favourites/edit', (req,res) =>{
         content: 'Edit your selected book',
         style: 'bookEdit.css'
     });
+});
+
+router.post('/add', (req,res)=>{
+    console.log('ok');
+    let x = req.body.name;
+    res.json({data: x});
+    res.end();
 });
 
 module.exports = router;

@@ -35,6 +35,7 @@ function createHtmlContent(content) {
         ;
 
 
+
     }
 }
 
@@ -48,3 +49,19 @@ function authorToLowerCase(author) {
    return words.join(" ");
 }
 
+
+function doRandom() {
+    let data = {name: 'ok'};
+
+        fetch('/add' , {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        }).then(response => response.json())
+            .then(data => console.log(data));
+
+
+        console.log(  '1');
+}
