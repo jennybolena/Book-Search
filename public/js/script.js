@@ -50,8 +50,9 @@ function authorToLowerCase(author) {
 }
 
 
+
 function addBookToFav(){
-    let data = {workId: 11121211, bookTitle: 'myBook', author: 'auth', onSaleDate: '22-06-1999' };
+    let data = {workId: 5511, bookTitle: 'myBook', author: 'auth', onSaleDate: '22-06-1999' };
 
         fetch('/add' , {
             method: 'POST',
@@ -59,8 +60,35 @@ function addBookToFav(){
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(data)
-        }).then(response => response.json())
-            .then(data => console.log('1'));
-
-
+        }).then(response => {
+            if (!response.ok){
+                throw Error(response.statusText);
+            }
+           return  response.json()
+        })
+            .then(data =>{
+                let message = data.message;
+                let code = data.code;
+                if (code === 1){
+                    swal(message,
+                        '',
+                        'success'
+                    );
+                }else if (code === 2) {
+                    swal(message,
+                        '',
+                        'info'
+                    );
+                }
+            }).catch(err=>{
+                console.log(err);
+                swal('Error, please try later!',
+                    '',
+                    'error'
+                );
+        });
 }
+
+/*
+
+*/

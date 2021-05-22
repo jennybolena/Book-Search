@@ -56,12 +56,11 @@ router.post('/add', (req,res)=>{
     const title = req.body.bookTitle;
     const author = req.body.author;
     const date_ = req.body.onSaleDate;
-    console.log('ok');
 
     orm.checkExists(workId, function (err, data) {
         if (err){
             return res.status(501).json({
-                message: 'Not able to query database',
+                message: 'Error, please try later.',
                 code: 0
             });
         };
@@ -69,32 +68,27 @@ router.post('/add', (req,res)=>{
       if(data.length === 0){
           orm.insertOne(workId, title, author , date_, function (error, data_) {
               if (error){
-                  return res.status(501).json({
-                      message: 'Not able to query database',
+                  return res.json({
+                      message: 'Error, please try later.',
                       code: 0
                   });
               }
 
               res.json({
-                  message: 'work was added successfully',
+                  message: 'The books has been added to favorites!',
                   code: 1,
                   data : data_});
               res.end();
           });
       } else{
           res.json({
-              'message' : 'Already exists',
+              'message' : 'The book already exists to favorites!',
               code : 2
           });
 
           res.end();
-          console.log('okkkkkk');
       }
     });
-
-
-
-
 });
 
 module.exports = router;
