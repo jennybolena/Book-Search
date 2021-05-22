@@ -48,16 +48,6 @@ function createHtmlContent(content) {
         article.appendChild(p2);
         article.appendChild(btn);
         booksElement.appendChild(article);
-
-        /*booksElement.innerHTML += '<article class="searched-book" id="workId" data-id="workId" data-title="bookTitle">' +
-            '<p class="book-title-author">' + bookTitle + '<span> by </span>' + author + '</p>' +
-            '<p class="extra-book-info"><strong>WorkId: </strong>' + workId + '<span></span> <strong>Release Date: </strong>' + onSaleDate +  '</p>'+
-            '<button class="save-book-btn" onclick="addBookToFav()"><i class="fas fa-star"></i></button>' +
-            '  </article>'
-        ;*/
-
-
-
     }
 }
 
