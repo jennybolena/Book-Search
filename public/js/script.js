@@ -60,8 +60,7 @@ function addBookToFav(){
             },
             body: JSON.stringify(data)
         }).then(response => response.json())
-            .then(data => console.log(data));
+            .then(data => console.log('1'));
 
 
-        console.log(  '1');
 }

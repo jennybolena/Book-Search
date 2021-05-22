@@ -14,6 +14,16 @@ const orm = {
             if (err) cb(err, null);
             cb(null, data);
         });
+    },
+
+    checkExists: function (workId, cb) {
+        console.log('OK1');
+        const sqlQuery = `Select * from favoriteBooks where workId = ${workId}`;
+        connection.query(sqlQuery, function (err, data) {
+            if (err) cb(err, null);
+            console.log('OK2');
+            cb(null, data);
+        });
     }
 }
 
