@@ -27,12 +27,34 @@ function createHtmlContent(content) {
 
         author = authorToLowerCase(author);
 
-        booksElement.innerHTML += '<article class="searched-book" id="workId" data-id="workId" data-title="bookTitle">' +
+        let article = document.createElement('article');
+        article.setAttribute('class', 'searched-book');
+        article.setAttribute('id', 'article-' + workId);
+
+        let p1 = document.createElement('p');
+        p1.innerHTML = '<p class="book-title-author">' + bookTitle + '<span> by </span>' + author + '</p>';
+        let p2 = document.createElement('p');
+        p2.innerHTML = '<p class="extra-book-info"><strong>WorkId: </strong>' + workId + '<span></span> <strong>Release Date: </strong>' + onSaleDate +  '</p>'
+
+        let btn = document.createElement('button');
+        btn.setAttribute('class', 'save-book-btn');
+        btn.setAttribute('id', workId + '-btn');
+        btn.innerHTML = '<i class="fas fa-star"></i>';
+        btn.addEventListener('click', function (){
+            addBookToFav(workId, bookTitle, author, onSaleDate);
+        });
+
+        article.appendChild(p1);
+        article.appendChild(p2);
+        article.appendChild(btn);
+        booksElement.appendChild(article);
+
+        /*booksElement.innerHTML += '<article class="searched-book" id="workId" data-id="workId" data-title="bookTitle">' +
             '<p class="book-title-author">' + bookTitle + '<span> by </span>' + author + '</p>' +
             '<p class="extra-book-info"><strong>WorkId: </strong>' + workId + '<span></span> <strong>Release Date: </strong>' + onSaleDate +  '</p>'+
             '<button class="save-book-btn" onclick="addBookToFav()"><i class="fas fa-star"></i></button>' +
             '  </article>'
-        ;
+        ;*/
 
 
 
@@ -51,8 +73,8 @@ function authorToLowerCase(author) {
 
 
 
-function addBookToFav(){
-    let data = {workId: 5511, bookTitle: 'myBook', author: 'auth', onSaleDate: '22-06-1999' };
+function addBookToFav(workId, bookTitle, author, onSaleDate){
+    let data = {workId: workId, bookTitle: bookTitle, author: author, onSaleDate: onSaleDate };
 
         fetch('/add' , {
             method: 'POST',
