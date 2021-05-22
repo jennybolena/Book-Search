@@ -27,10 +27,10 @@ function createHtmlContent(content) {
 
         author = authorToLowerCase(author);
 
-        booksElement.innerHTML += '<article class="searched-book" id="sss-sss">' +
+        booksElement.innerHTML += '<article class="searched-book" id="workId" data-id="workId" data-title="bookTitle">' +
             '<p class="book-title-author">' + bookTitle + '<span> by </span>' + author + '</p>' +
             '<p class="extra-book-info"><strong>WorkId: </strong>' + workId + '<span></span> <strong>Release Date: </strong>' + onSaleDate +  '</p>'+
-            '<button class="save-book-btn"><i class="fas fa-star"></i></button>' +
+            '<button class="save-book-btn" onclick="addBookToFav()"><i class="fas fa-star"></i></button>' +
             '  </article>'
         ;
 
@@ -50,8 +50,8 @@ function authorToLowerCase(author) {
 }
 
 
-function doRandom() {
-    let data = {name: 'ok'};
+function addBookToFav(){
+    let data = {workId: 11121211, bookTitle: 'myBook', author: 'auth', onSaleDate: '22-06-1999' };
 
         fetch('/add' , {
             method: 'POST',

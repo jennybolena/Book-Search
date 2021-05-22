@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
+const orm = require('../config/orm')
+
 
 router.get('/', (req,res) =>{
 
@@ -8,7 +10,7 @@ router.get('/', (req,res) =>{
        title: 'Books Search',
        content: 'Search books bae on different criteria',
        style: 'home.css',
-       jsFunc : 'js/worksFetch.js',
+       jsFunc : 'js/script.js',
        books:[{
            titleWeb: 'The Secrets of Handlebars',
            authorWeb: 'JB',
@@ -50,10 +52,25 @@ router.get('/favourites/edit', (req,res) =>{
 });
 
 router.post('/add', (req,res)=>{
+    const workId = req.body.workId;
+    const title = req.body.bookTitle;
+    const author = req.body.author;
+    const date_ = req.body.onSaleDate;
     console.log('ok');
-    let x = req.body.name;
-    res.json({data: x});
-    res.end();
+    orm.insertOne(workId, title, author , date_, function (err, data) {
+        if (err){
+            return res.status(501).json({
+                message: 'Not able to query database'
+            });
+        }
+
+        console.log(data.changedRows);
+        /*res.json({'data': data});*/
+        res.json({dat : 'ss'});
+        res.end();
+    });
+
+
 });
 
 module.exports = router;
