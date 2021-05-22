@@ -1,4 +1,8 @@
 function fetchWorks(searchInput){
+
+    if(searchInput == ''){
+        return;
+    }
     (async () => {
         const rawResponse = await fetch('https://reststop.randomhouse.com/resources/works?search=' + searchInput, {
             method: 'GET',

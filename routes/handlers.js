@@ -75,7 +75,7 @@ router.post('/add', (req,res)=>{
               }
 
               res.json({
-                  message: 'The books has been added to favorites!',
+                  message: 'The book has been added to favorites!',
                   code: 1,
                   data : data_});
               res.end();
