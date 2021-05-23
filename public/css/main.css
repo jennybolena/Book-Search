@@ -47,6 +47,12 @@ header nav a:hover{
     background-color: var(--orange);
 }
 footer{
+    margin-top: 500px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
     font-size: 20px;
     text-align: center;
     padding: 15px;

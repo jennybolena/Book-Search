@@ -107,7 +107,6 @@ router.delete('/delete/:workId', (req, res)=>{
            code: 1,
            data: data
        });
-       console.log(data);
        res.end();
    });
 });

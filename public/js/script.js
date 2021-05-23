@@ -21,6 +21,7 @@ function fetchWorks(searchInput){
 function createHtmlContent(content) {
     let booksElement = document.getElementById('books-of-search');
     booksElement.innerHTML = " ";
+    let lastWorkId;
     let allWorks = content.work;
     for(let singleWork of  allWorks){
         let author = singleWork.authorweb.toLowerCase();
@@ -52,7 +53,11 @@ function createHtmlContent(content) {
         article.appendChild(p2);
         article.appendChild(btn);
         booksElement.appendChild(article);
+
+        lastWorkId = workId;
     }
+
+    document.getElementById('article-' + lastWorkId).style.marginBottom = '100px';
 }
 
 function authorToLowerCase(author) {
@@ -66,6 +71,11 @@ function authorToLowerCase(author) {
 }
 
 
+function prepareForFetch(event, searchInput){
+    let keyCode = event.which || event.keyCode;
+    if(keyCode !== 13) return;
+    fetchWorks(searchInput);
+}
 
 function addBookToFav(workId, bookTitle, author, onSaleDate){
     let data = {workId: workId, bookTitle: bookTitle, author: author, onSaleDate: onSaleDate };
@@ -73,6 +83,7 @@ function addBookToFav(workId, bookTitle, author, onSaleDate){
         fetch('/add' , {
             method: 'POST',
             headers: {
+                'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(data)
@@ -87,14 +98,14 @@ function addBookToFav(workId, bookTitle, author, onSaleDate){
                 let code = data.code;
                 if (code === 1){
                     swal({
-                            title: "Book added to favorites!",
+                            title: "Book added!",
                             text: "Press REMOVE, to remove book from favorites!",
                             showCancelButton: true,
                             confirmButtonColor: "#E3210B",
                             confirmButtonText: "REMOVE",
                             cancelButtonText: "KEEP",
                             closeOnConfirm: false,
-                            closeOnCancel: true
+                            closeOnCancel: false
                         },
                         function(inputValue){
                             //Use the "Strict Equality Comparison" to accept the user's input "false" as string)
@@ -102,6 +113,7 @@ function addBookToFav(workId, bookTitle, author, onSaleDate){
                                  fetch('/delete/' + workId, {
                                      method: 'DELETE',
                                      headers: {
+                                         'Accept': 'application/json',
                                          'Content-Type': 'application/json'
                                      }
                                 }).then(response =>{
@@ -121,6 +133,11 @@ function addBookToFav(workId, bookTitle, author, onSaleDate){
                                          'error'
                                      );
                                  });
+                            }else{
+                                swal(data.message,
+                                    '',
+                                    'success'
+                                );
                             }
                         });
                 }else if (code === 2) {
@@ -137,7 +154,3 @@ function addBookToFav(workId, bookTitle, author, onSaleDate){
                 );
         });
 }
-
-/*
-
-*/

@@ -6,8 +6,9 @@
 
 <h1>Find books!</h1>
 <div class="search-books-container" id="search-books-container">
-    <input type="text" placeholder="Search..." name="search" class="search-input" id="search">
-    <button type="button"  onclick="fetchWorks(document.getElementById('search').value)" class="search-button"><i class="fas fa-search"></i></button>
+    <input type="text" placeholder="Search..." name="search" class="search-input" id="search"
+           onkeyup="prepareForFetch(event, document.getElementById('search').value)">
+    <button type="button" onclick="fetchWorks(document.getElementById('search').value)" class="search-button"><i class="fas fa-search"></i></button>
 </div>
 <section class="books-of-search" id="books-of-search">
 </section>
