@@ -86,11 +86,6 @@ function addBookToFav(workId, bookTitle, author, onSaleDate){
                 let message = data.message;
                 let code = data.code;
                 if (code === 1){
-                   /* swal(message,
-                        '',
-                        'success'
-                    );*/
-
                     swal({
                             title: "Book added to favorites!",
                             text: "Press REMOVE, to remove book from favorites!",
@@ -109,8 +104,23 @@ function addBookToFav(workId, bookTitle, author, onSaleDate){
                                      headers: {
                                          'Content-Type': 'application/json'
                                      }
-                                });
-                                swal("Book removed!");
+                                }).then(response =>{
+                                     if (!response.ok){
+                                         throw Error(response.statusText);
+                                     }
+                                    return response.json();
+                                 }).then(data =>{
+                                      swal(data.message,
+                                            '',
+                                            'success'
+                                      );
+                                 }).catch(err=>{
+                                     console.log(err);
+                                     swal('Error, please try later!',
+                                         '',
+                                         'error'
+                                     );
+                                 });
                             }
                         });
                 }else if (code === 2) {
