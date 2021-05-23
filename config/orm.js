@@ -22,7 +22,17 @@ const orm = {
             if (err) cb(err, null);
             cb(null, data);
         });
+    },
+
+    deleteOne: function(workId, cb){
+        const sqlQuery = `DELETE FROM favoriteBooks WHERE workId = ${workId}`;
+        connection.query(sqlQuery, function (err, data) {
+            if (err) cb(err, null);
+            cb(null, data);
+        });
     }
 }
+
+
 
 module.exports = orm;

@@ -86,10 +86,33 @@ function addBookToFav(workId, bookTitle, author, onSaleDate){
                 let message = data.message;
                 let code = data.code;
                 if (code === 1){
-                    swal(message,
+                   /* swal(message,
                         '',
                         'success'
-                    );
+                    );*/
+
+                    swal({
+                            title: "Book added to favorites!",
+                            text: "Press REMOVE, to remove book from favorites!",
+                            showCancelButton: true,
+                            confirmButtonColor: "#E3210B",
+                            confirmButtonText: "REMOVE",
+                            cancelButtonText: "KEEP",
+                            closeOnConfirm: false,
+                            closeOnCancel: true
+                        },
+                        function(inputValue){
+                            //Use the "Strict Equality Comparison" to accept the user's input "false" as string)
+                            if (inputValue===true){
+                                 fetch('/delete/' + workId, {
+                                     method: 'DELETE',
+                                     headers: {
+                                         'Content-Type': 'application/json'
+                                     }
+                                });
+                                swal("Book removed!");
+                            }
+                        });
                 }else if (code === 2) {
                     swal(message,
                         '',

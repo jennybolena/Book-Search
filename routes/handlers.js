@@ -91,4 +91,25 @@ router.post('/add', (req,res)=>{
     });
 });
 
+router.delete('/delete/:workId', (req, res)=>{
+
+   const workId  = req.params.workId;
+   orm.deleteOne(workId, function (error, data) {
+       if (error){
+           return res.json({
+               message: 'Error, please try later.',
+               code: 0
+           });
+       }
+
+       res.json({
+           message: 'Book was deleted!',
+           code: 1,
+           data: data
+       });
+       console.log(data);
+       res.end();
+   });
+});
+
 module.exports = router;
