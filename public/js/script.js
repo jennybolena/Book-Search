@@ -57,7 +57,9 @@ function createHtmlContent(content) {
         lastWorkId = workId;
     }
 
-    document.getElementById('article-' + lastWorkId).style.marginBottom = '100px';
+    let lastArticle = document.getElementById('article-' + lastWorkId);
+    lastArticle.style.paddingBottom = '100px';
+    lastArticle.style.borderBottom = 'none';
 }
 
 function authorToLowerCase(author) {
