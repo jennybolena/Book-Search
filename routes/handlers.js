@@ -47,6 +47,7 @@ router.get('/favourites/edit/:workId', (req,res) =>{
             title: 'Edit Book',
             content: 'Edit your selected book',
             style: 'bookEdit.css',
+            jsFunc: '/js/bookEdit.js',
             workId: workId,
             titleBook: data[0].title,
             author: data[0].author,
@@ -117,13 +118,16 @@ router.delete('/delete/:workId', (req, res)=>{
    });
 });
 
+
+
 router.put('/editBookInfo', (req, res)=>{
     const workId = req.body.workId;
-    const title = req.body.bookTitle;
+    const title = req.body.title;
     const author = req.body.author;
     const onSaleDate = req.body.onSaleDate;
     const comment = req.body.comment;
-    orm.updateOne(workId, author, title,onSaleDate, comment, function (error, data) {
+    console.log(workId, title, author, onSaleDate, comment);
+    orm.updateOne(workId, author, title,onSaleDate, comment, function (error, data_) {
         if (error){
             return res.json({
                 message: 'Error, please try later.',
@@ -131,13 +135,20 @@ router.put('/editBookInfo', (req, res)=>{
             });
         }
 
+        console.log('updated');
         res.json({
             message: 'Book was edited!',
             code: 1,
-            data: data
+            data: data_
         });
         res.end();
     });
+    /*res.json({
+        message: 'The book was edited!',
+        code: 1,
+        data: 'ok'
+    });
+    res.end();*/
 })
 
 module.exports = router;

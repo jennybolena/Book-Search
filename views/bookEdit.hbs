@@ -1,3 +1,4 @@
+<script src="{{jsFunc}}"></script>
 
 <h1> Edit the book!</h1>
 
@@ -6,22 +7,22 @@
         <legend>Book Info</legend>
         <div class="book-edit-single-info">
             <label for="book-title">Book:</label>
-            <input type="text" id="book-title" name="book-title" placeholder="{{titleBook}}">
+            <input type="text" id="book-title" name="book-title" value="{{titleBook}}">
         </div>
         <div class="book-edit-single-info">
             <label for="book-author">Author:</label>
-            <input type="text" id="book-author" name="book-author" placeholder="{{author}}">
+            <input type="text" id="book-author" name="book-author" value="{{author}}">
         </div>
         <div class="book-edit-single-info">
             <label for="book-on-sale-date">ReleaseDate:</label>
-            <input type="text" id="book-on-sale-date" name="book-on-sale-date" placeholder="{{onSaleDate}}">
+            <input type="text" id="book-on-sale-date" name="book-on-sale-date" value="{{onSaleDate}}">
         </div>
         <div class="book-edit-single-info">
             <label for="book-user-comment">Comment:</label>
-            <textarea  id="book-title" name="book-title" rows="5" cols="40"> </textarea>
+            <textarea  id="book-user-comment" name="book-user-comment" rows="5" cols="40"> {{comment}}</textarea>
         </div>
 
-        <button>Save</button>
-        <button>Discard</button>
+        <button type="button" onclick="updateData({{workId}})">Update</button>
+        <a><button type="button" onclick="discardChanges()">Discard</button></a>
     </fieldset>
 </form>

@@ -33,11 +33,18 @@ const orm = {
     },
 
     updateOne: function (workId, author, title, onSaleDate, comment, cb) {
-        const sqlQuery = `UPDATE favoriteBooks SET  workId = ${workId}, author = ${author},, title = ${title},, onSaleDate = ${onSaleDate},, comment = ${comment}
-            WHERE workId = ${workId}`;
+        const sqlQuery = `UPDATE favoriteBooks
+SET title = 'ok', author = 'ok', onSaleDate = '2099', comment = 'ok3times'
+Where workId = 2533 `;
         connection.query(sqlQuery, function (err, data) {
-            if (err) cb(err, null);
-            cb(null, data);
+            if (err) {
+                console.log('bad');
+                cb(err, null);
+            }else{
+                console.log('good');
+                cb(null, data);
+            }
+
         });
     }
 }
