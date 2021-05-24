@@ -30,6 +30,15 @@ const orm = {
             if (err) cb(err, null);
             cb(null, data);
         });
+    },
+
+    updateOne: function (workId, author, title, onSaleDate, comment, cb) {
+        const sqlQuery = `UPDATE favoriteBooks SET  workId = ${workId}, author = ${author},, title = ${title},, onSaleDate = ${onSaleDate},, comment = ${comment}
+            WHERE workId = ${workId}`;
+        connection.query(sqlQuery, function (err, data) {
+            if (err) cb(err, null);
+            cb(null, data);
+        });
     }
 }
 

@@ -1,4 +1,3 @@
-console.log('in');
 
 function deleteBook(workId) {
     fetch('/delete/' + workId, {
@@ -29,6 +28,3 @@ function deleteBook(workId) {
     })
 }
 
-function editBook(workId) {
-
-}

@@ -1,1 +1,27 @@
-<p>edit</p>
+
+<h1> Edit the book!</h1>
+
+<form class="book-edit-form" id="book-edit-form" autocomplete="off">
+    <fieldset class="book-edit-field">
+        <legend>Book Info</legend>
+        <div class="book-edit-single-info">
+            <label for="book-title">Book:</label>
+            <input type="text" id="book-title" name="book-title" placeholder="{{titleBook}}">
+        </div>
+        <div class="book-edit-single-info">
+            <label for="book-author">Author:</label>
+            <input type="text" id="book-author" name="book-author" placeholder="{{author}}">
+        </div>
+        <div class="book-edit-single-info">
+            <label for="book-on-sale-date">ReleaseDate:</label>
+            <input type="text" id="book-on-sale-date" name="book-on-sale-date" placeholder="{{onSaleDate}}">
+        </div>
+        <div class="book-edit-single-info">
+            <label for="book-user-comment">Comment:</label>
+            <textarea  id="book-title" name="book-title" rows="5" cols="40"> </textarea>
+        </div>
+
+        <button>Save</button>
+        <button>Discard</button>
+    </fieldset>
+</form>

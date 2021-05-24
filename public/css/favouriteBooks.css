@@ -30,17 +30,20 @@ h1{
     background-color: var(--green-btn);
 }
 
-.edit-fav-book a{
+
+.my-fav-book a{
     display: inline-block;
     text-decoration: none;
     color: #FFFFFF;
 }
-.edit-fav-book a:hover{
+
+.my-fav-book a{
     -ms-transform: scale(1.05);
     -webkit-transform: scale(1.05);
     -moz-transform: scale(1.05);
     transform: scale(1.05);
 }
+
 
 .delete-fav-book{
     background-color: var(--red-btn);

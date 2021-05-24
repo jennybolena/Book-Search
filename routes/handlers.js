@@ -10,7 +10,7 @@ router.get('/', (req,res) =>{
        title: 'Books Search',
        content: 'Search books bae on different criteria',
        style: 'home.css',
-       jsFunc : 'js/home.js'
+       jsFunc : '/js/home.js'
    });
 });
 
@@ -26,7 +26,7 @@ router.get('/favourites', (req,res) =>{
                 title: 'Favourite Books',
                 content: 'See your favourite books',
                 style: 'favouriteBooks.css',
-                jsFunc : 'js/favouriteBooks.js',
+                jsFunc : '/js/favouriteBooks.js',
                 favBooks: data
             },
         );
@@ -34,12 +34,27 @@ router.get('/favourites', (req,res) =>{
 
 });
 
-router.get('/favourites/edit:workId', (req,res) =>{
-    res.render('bookEdit', {
-        title: 'Edit Book',
-        content: 'Edit your selected book',
-        style: 'bookEdit.css'
+router.get('/favourites/edit/:workId', (req,res) =>{
+   let workId = req.params.workId;
+    orm.checkExists(workId,function (err, data) {
+        if(err){
+            return res.status(501).json({
+                message: 'Error, please try later.',
+                code: 0
+            });
+        };
+        res.render('bookEdit', {
+            title: 'Edit Book',
+            content: 'Edit your selected book',
+            style: 'bookEdit.css',
+            workId: workId,
+            titleBook: data[0].title,
+            author: data[0].author,
+            onSaleDate: data[0].onSaleDate,
+            comment: data[0].comment
+        });
     });
+
 });
 
 router.post('/add', (req,res)=>{
@@ -101,5 +116,28 @@ router.delete('/delete/:workId', (req, res)=>{
        res.end();
    });
 });
+
+router.put('/editBookInfo', (req, res)=>{
+    const workId = req.body.workId;
+    const title = req.body.bookTitle;
+    const author = req.body.author;
+    const onSaleDate = req.body.onSaleDate;
+    const comment = req.body.comment;
+    orm.updateOne(workId, author, title,onSaleDate, comment, function (error, data) {
+        if (error){
+            return res.json({
+                message: 'Error, please try later.',
+                code: 0
+            });
+        }
+
+        res.json({
+            message: 'Book was edited!',
+            code: 1,
+            data: data
+        });
+        res.end();
+    });
+})
 
 module.exports = router;
