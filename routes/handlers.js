@@ -34,7 +34,7 @@ router.get('/favourites', (req,res) =>{
 
 });
 
-router.get('/favourites/edit', (req,res) =>{
+router.get('/favourites/edit:workId', (req,res) =>{
     res.render('bookEdit', {
         title: 'Edit Book',
         content: 'Edit your selected book',
