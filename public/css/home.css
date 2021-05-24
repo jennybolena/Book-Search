@@ -2,6 +2,10 @@
     background-color: var(--orange-ish);
 }
 
+.search-books-container{
+    padding: 10px;
+    text-align: center;
+}
 
 .search-input{
     width: 50%;
@@ -46,6 +50,9 @@ h1{
   font-size: 25px;
 }
 
+.searched-book:hover .save-book-btn{
+    background-color: var(--pink-ish);
+}
 .save-book-btn{
     background-color: white;
     cursor: pointer;
@@ -61,5 +68,3 @@ h1{
     }
 }
 
-
-/* favorite books*/

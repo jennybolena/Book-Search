@@ -4,8 +4,11 @@
 
 <section class="fav-books">
     {{#each favBooks}}
-        <p class="book-title-author"> {{title}} <span> by </span> {{author}} </p>
-        <p class="extra-book-info"><strong>WorkId: </strong>  {{workId}} <span></span> <strong>Release Date: </strong> {{onSaleDate}}</p>
+        <article class="my-fav-book">
+            <p class="book-title-author"> {{title}} <span> by </span> {{author}} </p>
+            <p class="extra-book-info"><strong>WorkId: </strong>  {{workId}} <span></span> <strong>Release Date: </strong> {{onSaleDate}}</p>
+        </article>
+
     {{/each}}
 </section>
 
