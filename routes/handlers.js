@@ -10,20 +10,7 @@ router.get('/', (req,res) =>{
        title: 'Books Search',
        content: 'Search books bae on different criteria',
        style: 'home.css',
-       jsFunc : 'js/script.js',
-       books:[{
-           titleWeb: 'The Secrets of Handlebars',
-           authorWeb: 'JB',
-           workId: 123,
-           isbn: 123456789
-       },
-           {
-               titleWeb: 'The Secrets of Handlebars',
-               authorWeb: 'JB',
-               workId: 123,
-               isbn: 123456789
-           }
-           ]
+       jsFunc : 'js/home.js'
    });
 });
 
@@ -39,6 +26,7 @@ router.get('/favourites', (req,res) =>{
                 title: 'Favourite Books',
                 content: 'See your favourite books',
                 style: 'favouriteBooks.css',
+                jsFunc : 'js/favouriteBooks.js',
                 favBooks: data
             },
         );

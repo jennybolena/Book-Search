@@ -10,7 +10,9 @@
     --orange: #F24F09;
     --black-ish: #070E13;
     --blue-ish: #183040;
-    --pink-ish: #f8f3e9;
+    --pink-ish: #f8f7f7;
+    --red-btn: #dc0912;
+    --green-btn: #2dd251;
  }
 body{
     background-color: white;
@@ -47,7 +49,6 @@ header nav a:hover{
     background-color: var(--orange);
 }
 footer{
-    margin-top: 500px;
     position: fixed;
     bottom: 0;
     left: 0;
@@ -66,7 +67,10 @@ h1{
 }
 
 /*books styling*/
-
+.books-of-search, .fav-books{
+    padding-bottom: 100px;
+    padding-top: 20px;
+}
 
 .books-of-search .searched-book, .fav-books .my-fav-book{
     padding: 10px;
@@ -79,7 +83,6 @@ h1{
 }
 
 .searched-book, .my-fav-book{
-    border-bottom: 2px solid var(--black-ish);
     border-top: 2px solid var(--black-ish);
 }
 .searched-book:hover, .my-fav-book:hover{
