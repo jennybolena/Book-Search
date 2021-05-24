@@ -64,3 +64,46 @@ h1{
     font-size: 30px;
     text-align: center;
 }
+
+/*books styling*/
+.search-books-container, .fav-books{
+    padding: 10px;
+    text-align: center;
+}
+
+.books-of-search .searched-book{
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+.searched-book>p{
+    padding-bottom: 10px;
+}
+
+.searched-book{
+    border-bottom: 2px solid var(--black-ish);
+    border-top: 2px solid var(--black-ish);
+}
+.searched-book:hover{
+    background-color: var(--pink-ish);
+}
+
+.searched-book:hover .save-book-btn{
+    background-color: var(--pink-ish);
+}
+.book-title-author{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.book-title-author>span{
+    font-weight: normal;
+    font-style: italic;
+    display: block;
+    color: var(--orange-ish);
+}
+
+.extra-book-info>span{
+    padding: 0 10px;
+}

@@ -28,19 +28,22 @@ router.get('/', (req,res) =>{
 });
 
 router.get('/favourites', (req,res) =>{
-    res.render('favouriteBooks', {
-        title: 'Favourite Books',
-        content: 'See your favourite books',
-        style: 'favouriteBooks.css',
-        favBooks:[{
-            titleWeb: 'The Secrets of Handlebars',
-            authorWeb: 'JB',
-            workId: 123,
-            onSaleDate: '2015',
-            isbn: 123456789
-        }]
-    },
-    );
+    orm.selectAll(function (err, data) {
+        if(err){
+            return res.status(501).json({
+                message: 'Error, please try later.',
+                code: 0
+            });
+        };
+        res.render('favouriteBooks', {
+                title: 'Favourite Books',
+                content: 'See your favourite books',
+                style: 'favouriteBooks.css',
+                favBooks: data
+            },
+        );
+    });
+
 });
 
 router.get('/favourites/edit', (req,res) =>{
