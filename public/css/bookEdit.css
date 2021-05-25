@@ -1,5 +1,7 @@
 h1{
     padding: 20px;
+    background-color: var(--dark-red);
+    color: white;
 }
 
 .book-edit-form{
