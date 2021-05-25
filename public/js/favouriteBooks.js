@@ -38,12 +38,13 @@ function getFilteredBooks(searchInput) {
 
     clearTimeout(timer);
 
+
     timer = setTimeout(() => {
         let inputEmpty = false;
         if (searchInput == ''){
             searchInput = 'ok';
             inputEmpty = true;
-        };
+        }
 
         fetch('/getFavouriteFilter/' + searchInput, {
             method: 'GET',
