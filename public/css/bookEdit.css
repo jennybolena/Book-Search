@@ -1,0 +1,63 @@
+h1{
+    padding: 20px;
+}
+
+.book-edit-form{
+    padding: 20px;
+}
+
+.book-edit-field{
+    text-align: center;
+    padding: 20px;
+    border-radius: 5px;
+    border: 3px solid var(--black-ish);
+}
+
+.book-edit-field legend{
+    font-size: 25px;
+    font-weight: bold;
+    padding: 0 10px;
+}
+
+.book-edit-single-info{
+    padding: 10px;
+}
+
+label{
+    display: block;
+    font-size: 20px;
+    font-weight: bold;
+    padding-bottom: 5px;
+}
+
+textarea{
+
+    resize: none;
+    scroll-behavior: auto;
+}
+
+
+textarea, input{
+    outline: none;
+    width: 60%;
+    font-size: 18px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid var(--dark-red);
+}
+
+textarea:focus, input:focus{
+    box-shadow: 0px 0px 5px var(--orange-ish);
+}
+
+@media screen and (max-width: 600px){
+    .book-edit-single-info, .book-edit-field{
+        padding: 10px 5px;
+    }
+
+   textarea, input{
+       width: 100%;
+       padding: 5px;
+   }
+}
+

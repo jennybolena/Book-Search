@@ -26,7 +26,7 @@ function createHtmlContent(content) {
     for(let singleWork of  allWorks){
         let author = singleWork.authorweb.toLowerCase();
         let bookTitle = singleWork.titleSubtitleAuth;
-        bookTitle = bookTitle.substring(0, bookTitle.lastIndexOf(':'));
+
         let workId = singleWork.workid;
         let onSaleDate = singleWork.onsaledate.split('-')[0];
 

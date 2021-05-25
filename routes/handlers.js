@@ -135,7 +135,7 @@ router.put('/editBookInfo', (req, res)=>{
         }
 
         res.json({
-            message: 'Book was edited!',
+            message: 'The Book was edited!',
             code: 1,
             data: data
         });

@@ -105,3 +105,38 @@ h1{
 .extra-book-info>span{
     padding: 0 10px;
 }
+
+/*buttons*/
+.delete-fav-book, .edit-fav-book, .save-edit-btn, .discard-edit-btn{
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    cursor: pointer;
+    margin: 5px 0;
+}
+
+.delete-fav-book:hover, .edit-fav-book:hover, .save-edit-btn:hover, .discard-edit-btn:hover{
+    -ms-transform: scale(1.05);
+    -webkit-transform: scale(1.05);
+    -moz-transform: scale(1.05);
+    transform: scale(1.05);
+}
+
+.edit-fav-book, .save-edit-btn{
+    background-color: var(--green-btn);
+}
+
+
+.delete-fav-book, .discard-edit-btn{
+    background-color: var(--red-btn);
+}
+
+.btn-separator{
+    padding: 10px;
+}

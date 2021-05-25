@@ -7,7 +7,7 @@
         <legend>Book Info</legend>
         <div class="book-edit-single-info">
             <label for="book-title">Book:</label>
-            <input type="text" id="book-title" name="book-title" value="{{titleBook}}">
+            <textarea  id="book-title" name="book-title" cols="" rows="4">{{titleBook}}</textarea>
         </div>
         <div class="book-edit-single-info">
             <label for="book-author">Author:</label>
@@ -19,10 +19,11 @@
         </div>
         <div class="book-edit-single-info">
             <label for="book-user-comment">Comment:</label>
-            <textarea  id="book-user-comment" name="book-user-comment" rows="5" cols="40"> {{comment}}</textarea>
+            <textarea  id="book-user-comment" name="book-user-comment" rows="4" cols=""> {{comment}}</textarea>
         </div>
 
-        <button type="button" onclick="updateData({{workId}})">Save</button>
-        <a><button type="button" onclick="discardChanges()">Discard</button></a>
+        <button type="button" class="save-edit-btn" onclick="updateData({{workId}})">Save</button>
+        <span class="btn-separator"></span>
+        <button type="button" class="discard-edit-btn" onclick="discardChanges()">Discard</button>
     </fieldset>
 </form>
