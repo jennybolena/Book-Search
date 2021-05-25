@@ -44,7 +44,7 @@ function createHtmlContent(content) {
         let btn = document.createElement('button');
         btn.setAttribute('class', 'save-book-btn');
         btn.setAttribute('id', workId + '-btn');
-        btn.innerHTML = '<i class="fas fa-star"></i>';
+        btn.innerHTML = 'Add to<i class="fas fa-star"></i> favourite';
         btn.addEventListener('click', function (){
             addBookToFav(workId, bookTitle, author, onSaleDate);
         });

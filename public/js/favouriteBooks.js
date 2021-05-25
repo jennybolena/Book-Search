@@ -28,3 +28,7 @@ function deleteBook(workId) {
     })
 }
 
+function goToEdit(workId) {
+    window.location.href ="favourites/edit/" + workId;
+
+}

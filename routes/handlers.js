@@ -126,8 +126,7 @@ router.put('/editBookInfo', (req, res)=>{
     const author = req.body.author;
     const onSaleDate = req.body.onSaleDate;
     const comment = req.body.comment;
-    console.log(workId, title, author, onSaleDate, comment);
-    orm.updateOne(workId, author, title,onSaleDate, comment, function (error, data_) {
+    orm.updateOne(workId, author, title,onSaleDate, comment, function (error, data) {
         if (error){
             return res.json({
                 message: 'Error, please try later.',
@@ -135,20 +134,13 @@ router.put('/editBookInfo', (req, res)=>{
             });
         }
 
-        console.log('updated');
         res.json({
             message: 'Book was edited!',
             code: 1,
-            data: data_
+            data: data
         });
         res.end();
     });
-    /*res.json({
-        message: 'The book was edited!',
-        code: 1,
-        data: 'ok'
-    });
-    res.end();*/
 })
 
 module.exports = router;

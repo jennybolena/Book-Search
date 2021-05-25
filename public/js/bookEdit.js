@@ -3,7 +3,7 @@ function updateData(workId){
     let author = document.getElementById('book-author').value;
     let title = document.getElementById('book-title').value;
     let onSaleDate = document.getElementById('book-on-sale-date').value;
-    let comment = document.getElementById('book-user-comment').innerText;
+    let comment = document.getElementById('book-user-comment').value;
     console.log(comment);
     let myData = {workId: workId, author: author, title: title, onSaleDate: onSaleDate, comment: comment};
     fetch('/editBookInfo', {

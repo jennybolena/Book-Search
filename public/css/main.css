@@ -10,7 +10,7 @@
     --orange: #F24F09;
     --black-ish: #070E13;
     --blue-ish: #183040;
-    --pink-ish: #f8f7f7;
+    --pink-ish: #fff1c3;
     --red-btn: #dc0912;
     --green-btn: #2dd251;
  }
@@ -31,6 +31,7 @@ header nav{
     flex-wrap: wrap;
     justify-content: center;
     padding: 1px;
+    z-index: 10;
 }
 
 header nav a{

@@ -11,7 +11,7 @@
             <p class="book-title-author"> {{title}} <span> by </span> {{author}} </p>
             <p class="extra-book-info"><strong>WorkId: </strong>  {{workId}} <span></span> <strong>Release Date: </strong> {{onSaleDate}}</p>
 
-            <a href="favourites/edit/{{workId}}"><button class="edit-fav-book">Edit</button></a>
+            <button class="edit-fav-book" onclick="goToEdit({{workId}})">Edit</button>
             <span class="btn-separator"></span>
             <button class="delete-fav-book"onclick="deleteBook({{workId}})">Delete</button>
         </article>
