@@ -5,7 +5,8 @@
 
 <h1>FAVOURITE BOOKS</h1>
 <div class="search-fav-books-container" id="search-fav-books-container">
-    <input type="text" placeholder="Filter books..." name="search" class="search-input" id="search-fav-book">
+    <input type="text" placeholder="Filter books..." name="search" class="search-input" id="search-fav-book"
+           onkeyup="getFilteredBooks(this.value)">
 </div>
 
 <section class="fav-books">

@@ -141,6 +141,44 @@ router.put('/editBookInfo', (req, res)=>{
         });
         res.end();
     });
-})
+});
+
+router.get('/getFavouriteFilter/:searchInput', (req, res)=>{
+    const searchInput = req.params.searchInput;
+    orm.selectAllFilter(searchInput, function (error, data) {
+        if (error){
+            return res.json({
+                message: 'Error, please try later.',
+                code: 0
+            });
+        }
+        console.log(data);
+        res.json({
+            message: 'The books were retrieved!',
+            code: 1,
+            data: data
+        });
+        res.end();
+    });
+});
+
+router.get('/getFavouriteReverseFilter/:searchInput', (req, res)=>{
+    const searchInput = req.params.searchInput;
+    orm.selectAllReverseFilter(searchInput, function (error, data) {
+        if (error){
+            return res.json({
+                message: 'Error, please try later.',
+                code: 0
+            });
+        }
+        console.log(data);
+        res.json({
+            message: 'The books were retrieved!',
+            code: 1,
+            data: data
+        });
+        res.end();
+    });
+});
 
 module.exports = router;

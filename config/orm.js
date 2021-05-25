@@ -8,6 +8,25 @@ const orm = {
         })
     },
 
+    selectAllFilter: function (searchInput, cb) {
+        const sqlQuery = `select workId from favoriteBooks
+                    where title  Like '%${searchInput}%' or author  Like '%${searchInput}%'`;
+        connection.query(sqlQuery, function (err, data) {
+            if (err) cb(err, null);
+            cb(null,data);
+        })
+    }
+    ,
+
+    selectAllReverseFilter: function (searchInput, cb) {
+        const sqlQuery = `select workId from favoriteBooks
+                    where title NOT Like '%${searchInput}%' AND author  NOT Like '%${searchInput}%'`;
+        connection.query(sqlQuery, function (err, data) {
+            if (err) cb(err, null);
+            cb(null,data);
+        })
+    },
+
     insertOne: function (workId, title, author, onSaleDate,  cb) {
         const sqlQuery = ` INSERT INTO favoriteBooks(workId, title, author, onSaleDate) VALUES('${workId}', '${title}', '${author}', '${onSaleDate}')`;
         connection.query(sqlQuery, function (err, data) {
