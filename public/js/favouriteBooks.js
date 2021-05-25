@@ -1,3 +1,4 @@
+let timer = 500;
 
 function deleteBook(workId) {
     fetch('/delete/' + workId, {
@@ -34,24 +35,28 @@ function goToEdit(workId) {
 
 
 function getFilteredBooks(searchInput) {
-    let inputEmpty = false;
-    if (searchInput == ''){
-        searchInput = 'ok';
-        inputEmpty = true;
-    }
 
-    fetch('/getFavouriteFilter/' + searchInput, {
-        method: 'GET',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        }
-    }).then(response =>{
-        if (!response.ok){
-            throw Error(response.statusText);
-        }
-        return response.json();
-    }).then(data =>{
+    clearTimeout(timer);
+
+    timer = setTimeout(() => {
+        let inputEmpty = false;
+        if (searchInput == ''){
+            searchInput = 'ok';
+            inputEmpty = true;
+        };
+
+        fetch('/getFavouriteFilter/' + searchInput, {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+        }).then(response =>{
+            if (!response.ok){
+                throw Error(response.statusText);
+            }
+            return response.json();
+        }).then(data =>{
             fetch('/getFavouriteReverseFilter/' + searchInput, {
                 method: 'GET',
                 headers: {
@@ -81,16 +86,18 @@ function getFilteredBooks(searchInput) {
                     'error'
                 );
             });
-        let myData = data.data;
-        for (let singleData of myData ){
-            document.getElementById('my-fav-book-' + singleData.workId).style.display = 'block';
-        }
+            let myData = data.data;
+            for (let singleData of myData ){
+                document.getElementById('my-fav-book-' + singleData.workId).style.display = 'block';
+            }
 
-    }).catch(err=>{
-        console.log(err);
-        swal('Error, please try later!',
-            '',
-            'error'
-        );
-    });
+        }).catch(err=>{
+            console.log(err);
+            swal('Error, please try later!',
+                '',
+                'error'
+            );
+        });
+    }, 500);
+
 }

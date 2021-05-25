@@ -91,6 +91,14 @@ input:-webkit-autofill:active {
     transition-property: background-color, color;
 }
 
+
+@media screen and (max-width: 600px){
+    .search-input{
+        width: 80%;
+        margin-bottom: 5px;
+    }
+}
+
 /*books styling*/
 .books-of-search, .fav-books{
     padding-bottom: 100px;

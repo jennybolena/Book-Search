@@ -152,7 +152,6 @@ router.get('/getFavouriteFilter/:searchInput', (req, res)=>{
                 code: 0
             });
         }
-        console.log(data);
         res.json({
             message: 'The books were retrieved!',
             code: 1,
@@ -171,7 +170,7 @@ router.get('/getFavouriteReverseFilter/:searchInput', (req, res)=>{
                 code: 0
             });
         }
-        console.log(data);
+
         res.json({
             message: 'The books were retrieved!',
             code: 1,

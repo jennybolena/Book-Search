@@ -36,11 +36,3 @@ h1{
 }
 
 
-
-@media screen and (max-width: 600px){
-    .search-input{
-        width: 80%;
-        margin-bottom: 5px;
-    }
-}
-
